@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package audience;
+
+service AudienceService {
+  rpc createAudience (CreateRequest) returns (CreateResponse) {}
+  rpc getAllAudience (Empty) returns (ReadResponse) {}
+  rpc getAudience (ReadRequest) returns (ReadResponse) {}
+  rpc updateAudience (UpdateRequest) returns (UpdateResponse) {}
+  rpc deleteAudience (DeleteRequest) returns (DeleteResponse) {}
+}
+
+message Empty {}
+
+message CreateRequest {
+  string name = 1;
+  string email = 2;
+  string phoneNum = 3;
+  int32 tickets = 4;
+}
+
+message CreateResponse {
+  string id = 1;
+}
+
+message ReadRequest {
+  string id = 1;
+}
+
+message ReadResponse {
+  string name = 1;
+  string email = 2;
+  string phoneNum = 3;
+  int32 tickets = 4;
+}
+
+message UpdateRequest {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  string phoneNum = 4;
+  int32 tickets = 5;
+}
+
+message UpdateResponse {}
+
+message DeleteRequest {
+  string id = 1;
+}
+
+message DeleteResponse {}
